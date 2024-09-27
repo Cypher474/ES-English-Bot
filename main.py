@@ -10,6 +10,7 @@ from fastapi import FastAPI, HTTPException, APIRouter, UploadFile, File, Form,Co
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
+from fastapi.openapi.docs import get_swagger_ui_html
 from typing import AsyncGenerator, Optional
 from typing_extensions import override
 from dotenv import load_dotenv
@@ -32,7 +33,13 @@ DB_CONFIG = {
 }
 
 # FastAPI app initialization
-app = FastAPI()
+app = FastAPI(
+
+    title="ES English Bot",
+    description="Welcome to the documentation for ES English Bot Backend! These API consist of  ES English Bot GPT APIs! Here you can find all the info",
+    openapi_url="/esenglish/openapi.json",
+    docs_url="/esenglish/docs"
+)
 
 # Add CORS middleware
 app.add_middleware(
@@ -188,6 +195,14 @@ def get_or_create_thread_id(studentid: str, assistant_id: str = None, existing_t
             cursor.close()
             connection.close()
 
+@app.get("/", include_in_schema=False)
+async def custom_swagger_ui_html():
+    return get_swagger_ui_html(openapi_url="/openapi.json", title="API Docs")
+
+# Endpoint to serve OpenAPI schema
+@app.get("/gptchats/openapi.json", include_in_schema=False)
+async def get_openapi_schema():
+    return app.openapi()
 
 # Login endpoint
 @app.get("/thread")
