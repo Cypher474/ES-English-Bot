@@ -200,7 +200,7 @@ async def custom_swagger_ui_html():
     return get_swagger_ui_html(openapi_url="/openapi.json", title="API Docs")
 
 # Endpoint to serve OpenAPI schema
-@app.get("/gptchats/openapi.json", include_in_schema=False)
+@app.get("/esenglish/openapi.json", include_in_schema=False)
 async def get_openapi_schema():
     return app.openapi()
 
