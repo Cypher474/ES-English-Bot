@@ -1,0 +1,67 @@
+# Byte-compiled files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Distribution and packaging
+.Python
+build/
+develop-eggs/
+dist/
+eggs/
+egg-info/
+.installed.cfg
+*.egg-info/
+*.egg
+*.whl
+
+# PyInstaller
+#  Usually these files are written by a Python tool to store state and
+#  configuration data.
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+*.cover
+*.log
+nosetests.xml
+coverage.xml
+*.coveragerc
+*.tox
+*.nox
+*.coverage
+*.hypothesis
+*.pytest_cache/
+
+# Environment variables
+.env
+*.env
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+
+# Pyenv
+.python-version
+
+# mypy
+.mypy_cache/
+
+# Pylint
+pylint.log
+
+# Docker
+docker-compose.yml
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
